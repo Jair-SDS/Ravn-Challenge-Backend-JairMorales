@@ -1,0 +1,22 @@
+#Docker version 20.10.8
+version: '3.9'
+
+services: 
+  postgres:
+    container_name: postgres-docker
+    #Postgres version (latests - 17/09/21)
+    image: postgres:13.4
+
+    environment: 
+      - POSTGRES_DB=RavnTest_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    
+    ports: 
+      - '5432:5432'
+    
+    volumes: 
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
