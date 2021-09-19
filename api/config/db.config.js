@@ -1,7 +1,10 @@
 import { Sequelize }   from "sequelize";
 import dotenv from 'dotenv'
+
+//Loan data from .env
 dotenv.config();
 
+//Create a DB instance using Sequalize and Postgres
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
     host: process.env.DB_HOST,
     dialect: 'postgres',
@@ -12,6 +15,7 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, pr
 });
 
 
+//Global const of our DB to import
 const db = {};
 
 db.Sequelize = Sequelize;
@@ -29,7 +33,7 @@ import sale_items_model from "../models/sale_items.js";
 db.sale_items = sale_items_model(sequelize);
 
 
-//Realtions
+//Realtions (JOINS)
 db.books.hasMany(db.sale_items,{
     foreignKey: 'book_id'
 });

@@ -1,3 +1,4 @@
+//MODEL of authors TABLE
 
 export default function(sequelize){
     const Author = sequelize.define('author',{

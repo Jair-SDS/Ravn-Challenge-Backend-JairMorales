@@ -1,3 +1,4 @@
+//MODEL of books TABLE
 
 export default function(sequelize){
     const Books = sequelize.define('books',{

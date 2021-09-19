@@ -1,3 +1,5 @@
+//MODEL of sale_items TABLE
+
 
 export default function(sequelize){
     const Sale_items = sequelize.define('sale_items',{
